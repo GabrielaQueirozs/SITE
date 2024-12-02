@@ -7,21 +7,19 @@
 
 /* Variáveis */
 :root {
-    --background:#00000000;
-    --branco: #feef9c;
-    --amarelo: #feef9c;
-    --azul: #feef9c;
-    --azulEscuro: #0000;
-    --cinzaClaro: #0a0a0a;
+    --background: #0f0f0f;
+    --branco: #fff;
+    --amarelo: #e5b567;
+    --azul: #9cdcfe;
+    --azulMedio: #3b468c;
+    --azulEscuro: #05152b;
+    --cinzaClaro: #d6d6d6;
     --cinza: #858585;
     --laranja: #e87d3e;
     --pink: #b05279;
     --roxo: #9e86c8;
     --verde: #b4d273;
-    --marrom: #d2ba9e;
-    --preto: #000000;
-    --cinzaclarinho: #4f4f4f;
-    /* amarelo # ffdead */
+    --vermelho: #ff0000;
 }
 
 /* CSS Reset (compatibilizar com todos navegadores) */
@@ -36,7 +34,7 @@ body {
     font-family: "Open Sans", sans-serif;
     font-size: 1em;
     /* 1em = 100% (tamanho padrão) */
-    background-color: var(--marrom);
+    background-color: var(--background);
 }
 
 .container {
@@ -51,15 +49,47 @@ body {
     text-decoration: none;
     color: var(--branco);
     font-size: 1.3em;
-    font-weight: 500;
-    background-color: var(--cinzaClaro);
-    width: 100px;
-    padding: 15px 15px;
-    border: 2px solid var(--marrom);
+    font-weight: 700;
+    background-color: var(--vermelho);
+    width: 200px;
+    padding: 10px 20px;
+    border: 2px solid var(--branco);
     border-radius: 25px;
     align-self: center;
     margin-top: 30px;
 }
+
+/* Layout para 3 cartões */
+.card {
+    width: 338px;
+    height: 520px;
+    margin-top: 25px;
+    background-color: var(--cinza);
+    border: 1px solid var(--azul);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.card img {
+    border-radius: 25px 25px 0px 0px;
+}
+
+.card h3 {
+    margin-top: 15px;
+}
+
+.card p {
+    text-align: left;
+    padding: 10px 30px 50px 30px;
+}
+
+.card a {
+    padding: 10px 100px;
+    border: 0;
+    background-color: var(--azul);
+    color: var(--azulEscuro);
+}
+
 
 /* Fim do Layout <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -92,7 +122,7 @@ label {
     top: 5px;
     right: 15px;
     /* transparência (0 a 1 (100%) */
-    color: rgba(254, 239, 156, 0.9);
+    color: rgba(254, 236, 156, 0.9);
 }
 
 nav ul {
@@ -107,15 +137,13 @@ nav ul {
 }
 
 nav ul li {
-    padding: 20px 20px;
-    border-bottom: 7px solid var(--cinzaClaro);
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--cinza);
     text-align: right;
 }
-/*  --cor menu-- */
+
 nav ul li a {
-    color: var(--cinzaClaro);
-    background-color:#e87c3e25;
- 
+    color: var(--azul);
     /* remover sublinhado */
     text-decoration: none;
 }
@@ -146,13 +174,11 @@ main h1 {
 }
 
 main h2 {
-    color: var(--branco);
+    color: var(--amarelo);
     font-size: 2.2em;
     margin-top: 25px;
     font-weight: 800;
 }
-
-
 
 /******* Destaque *******/
 #destaque {
@@ -183,10 +209,10 @@ main h2 {
 }
 
 #textoDestaque {
-    color: var(--laranja);
+    color: var(--branco);
 }
 
-#textoDestaque h2 {
+#textoDestaque h2 {    
     margin-bottom: 20px;
 }
 
@@ -208,40 +234,91 @@ main h2 {
 .topicos p {
     font-weight: 600;
 }
-  /*sobre */
-  sobre .container{
+
+/****** Sobre ******/
+/* O estilo abaixo será aplicado apenas ao container que está subordinado a section "sobre" */
+#sobre {
+    background-color: var(--background);
+    padding: 60px 15px;
+}
+
+#sobre .container {
     flex-direction: column;
-  }
-#sobre{
-    padding: 50px 15px;
-    
 }
 
-
-/*--segundo texto--*/
-#sobre  h2, p{
-    color: var(--cinzaclarinho)
+#sobre h2, p {
+    color: var(--branco);
 }
 
-#sobre h2{
+#sobre h2 {
     margin-bottom: 20px;
-  
-   
-      
+    font-size: 2em;
 }
-#video iframe {
-    width: 100px;
-    height: 100px;
-    margin-top: 20px;
-       
-      
-          
-      
-      
-      
-} 
 
-/* FIm | Smartphone Portrait >>>>>>>>>>>>>>>>>>>>>>>*/
+#video iframe {
+    width: 350px;
+    height: 191px;
+    margin-top: 20px;
+}
+
+/****** Faixa de destaque ******/
+#faixaDestaque {
+    background: url(img/back.png);
+    background-size: cover;
+    background-position: center;
+    padding: 50px 15px;
+}
+
+#faixaDestaque .container {
+    flex-direction: column;
+}
+
+#imagemFaixa img {
+    width: 256px;
+    height: 256px;
+}
+
+#textoFaixa h2 {
+    color: var(--branco);
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+#textoFaixa p {
+    margin-bottom: 50px;
+}
+
+/****** Seção de conteúdo (cards) ******/
+#conteudo {
+    padding: 50px 0px;
+}
+
+#conteudo .container {
+    flex-direction: column;
+    align-items: center;
+}
+
+#conteudo h2 {
+    color: var(--amarelo);
+    margin-bottom: 25px;
+}
+
+#todos {
+    color: var(--amarelo);
+    margin-top: 50px;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.containerCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+
+/* Fim | Smartphone Portrait >>>>>>>>>>>>>>>>>>>>>>>*/
 
 
 /* Smartphone Landscape >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -281,27 +358,13 @@ main h2 {
         width: 256px;
         height: 256px;
     }
+
+    /****** Sobre ******/
+    #video iframe {
+        width: 560px;
+        height: 315px;
+    }
 }
-
- /* sobre */
-
- #video iframe {
-    width: 400px;
-    height: 290px;
-    margin-top: 30px;
-    position: relative;
-    left: 800px;  /* Mover o vídeo 100px para a direita */
-    margin-top: -160px;  /* Move o vídeo 20px para cima */
-   
-       
-      
-      
-    
-
-    
-} 
-
-
 
 /* Fim | Smartphone Landscape >>>>>>>>>>>>>>>>>>>>>>*/
 
@@ -328,6 +391,11 @@ main h2 {
     #imagemDestaque img {
         width: 440px;
         height: 440px;
+    }
+
+    /****** Seção de conteúdo - cards ******/
+    .card {
+        margin: 25px 10px 0px 10px;
     }
 }
 
@@ -358,7 +426,7 @@ main h2 {
     /****** Layout ******/
     .container {
         max-width: 1140px;
-        /* background-color: #ff009d; */
+        /* background-color: #ff009d; */       
     }
 
     /****** Cabeçalho ******/
@@ -391,11 +459,11 @@ main h2 {
     }
 
     nav ul li a {
-        color: var(--cinzaClaro);
+        color: var(--amarelo);
     }
 
     nav ul li a:hover {
-        color: var(--background);
+        color: var(--amarelo);
     }
 
     /****** Banner ******/
@@ -412,14 +480,33 @@ main h2 {
         /* O código abaixo fixa o banner (efeito parallax) */
         background-attachment: fixed;
     }
-    /* --sobre-- */
-#sobre .container {
-    flex-direction: row;
-    align-items: center;
-}
-    
-}
 
+    /******* Sobre ******/
+    #sobre .container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #video iframe {
+        margin: 0;
+    }
+
+    /***** Faixa de destaque ******/
+    #faixaDestaque {
+        background-attachment: fixed;
+    }
+
+    #faixaDestaque .container {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    #imagemFaixa img {
+        width: 400px;
+        height: 400px;
+    }  
+   
+}
 /* Fim | PCs / Notebooks >>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
